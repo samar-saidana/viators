@@ -1,0 +1,69 @@
+{% extends 'front.html.twig' %}
+
+{% block body %}
+    <head><script src="https://kit.fontawesome.com/9f0b926b9a.js" crossorigin="anonymous"></script></head>
+    <tbody>
+            <h1> La liste des vols</h1>
+   <form method="post" action="{{ path('recherche') }}">
+       <label>Entrer la ville de départ:</label>
+    <input type="text" name="search">
+
+       <input type="submit" value="Recherche">
+   </form>
+    <style>
+            table{
+                border:solid 1px #aaa999;
+            }
+            table tr th{
+                border:solid 1px #aaa999;
+                padding:6px 11px;
+            }
+            table tr td{
+                border:solid 1px #aaa999;
+                padding:6px 11px;
+            }
+    </style>
+        <table style="border:solid 1px #aaa999;">
+
+
+                <th>Date vol</th>
+
+                <th>Prix vol</th>
+                <th>Ville depart</th>
+                <th>Ville arrivée</th>
+                <th>Action</th>
+            <th>Wishlist</th>
+            <th>rating</th>
+
+
+            {% for c in vol %}
+                <tr>
+
+                    <td>{{ c.Datevolll|date}}</td>
+                    <td>{{ c.prixvolll }}</td>
+                    <td>{{ c.destination.villedep }}</td>
+                    <td>{{ c.destination.villearr }}</td>
+                    <td><a href="{{ path('reserver')}}">Réserver</a>
+                        </td>
+                    <td><a href="{{ path('wishlist')}}">Ajouter</a>
+                    </td>
+                    <td><i class="fa fa-star" style="color: black">
+                            <i class="fa fa-star" style="color: black"></i>
+                            <i class="fa fa-star" style="color: black"></i>
+                            <i class="fa fa-star" style="color: black"></i>
+                            <i class="fa fa-star" style="color: black"></i>
+                            <i class="fa fa-star" style="color: black"></i> </td>
+
+                </tr>
+
+            {% endfor %}
+
+        </table>
+
+
+
+    </tbody>
+
+{% endblock %}
+
+

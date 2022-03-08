@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VolController!{% endblock %}
+
+{% block body %}
+
+        {% for c in reservation %}
+            <a href="{{ path('pdf',{'id':c.id}) }}"><img width="30" src="https://cdn-icons-png.flaticon.com/512/337/337946.png"></a>
+
+        {% endfor %}
+
+
+
+{% endblock %}
+
